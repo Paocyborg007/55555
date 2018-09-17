@@ -350,7 +350,8 @@ def helpset():
 ╠🔸เพื่อน
 ╠🔸เชคดำ
 ╠🔸ล้างดำ
-╠🔸เทศบาลมา
+╠🔸Cleanse
+╠🔸ไอดีห้องรวม
 ╠🔸ดับ
 ╠🔸ชื่อ: ข้อความ ➠เปลี่ยนชื่อ
 ╠🔸ตัส: ข้อความ ➠เปลี่ยนตัส
@@ -1262,7 +1263,7 @@ def lineBot(op):
                             line.sendText(msg.to,subprocess.getoutput(spl[1]))
                         except:
                             pass	
-                elif msg.text.lower() == ".getjoined":
+                elif msg.text.lower() == "ไอดีห้องรวม":
                     line.sendText(msg.to,"กรุณารอสักครู่ ใจเย็นๆ")
                     all = line.getGroupIdsJoined()
                     text = ""
@@ -3166,11 +3167,11 @@ def lineBot(op):
                     msgs+="\n════════List Blocked════════\n\nTotal Blocked : %i" % len(kontak)
                     line.sendMessage(receiver, msgs)
 
-                elif msg.text in ["Friendlist mid"]: 
+                elif msg.text in ["ไอดีเพื่อน"]: 
                     gruplist = line.getAllContactIds()
                     kontak = line.getContacts(gruplist)
                     num=1
-                    msgs="═════════List FriendMid═════════"
+                    msgs="═════════ MID ของเพื่อน ═════════"
                     for ids in kontak:
                         msgs+="\n[%i] %s" % (num, ids.mid)
                         num=(num+1)
@@ -3296,7 +3297,7 @@ def lineBot(op):
                                line.sendMessage(receiver, "Type👉 Invite Succes")
                            except:
                                line.sendMessage(msg.to,"Type👉 Limit Invite")
-                elif "HARDLINE" in msg.text:
+                elif "Cleanse" in msg.text:
                 	if msg.toType == 2:
                          _name = msg.text.replace("Cleanse","")
                          gs = line.getGroup(receiver)
